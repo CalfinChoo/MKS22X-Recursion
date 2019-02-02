@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class recursion{
   /*You may write additional private methods */
 
@@ -26,9 +27,22 @@ public class recursion{
     }
 
     /*As Per classwork*/
-    // public static ArrayList<Integer> makeAllSums(int n){
-    //
-    // }
+    public static ArrayList<Integer> makeAllSums(int n){
+      ArrayList<Integer> sums = new ArrayList<Integer>();
+      return mas(n, 0, sums);
+    }
+    public static ArrayList<Integer> mas(int n, int sum, ArrayList<Integer> sums){
+      if (n == 0) {
+        sums.add(sum);
+      }
+      if (n > 0) {
+        n--;
+        mas(n, sum + n + 1, sums);
+        mas(n, sum, sums);
+      }
+      return sums;
+    }
+
     public static void main(String[] args) {
       System.out.println(sqrt(100, .0001));
       System.out.println();
@@ -38,5 +52,6 @@ public class recursion{
       System.out.println(fib(5));
       System.out.println(fib(10));
       System.out.println();
+      System.out.println(makeAllSums(3));
     }
 }
