@@ -8,11 +8,13 @@ public class recursion{
 
     */
     public static double sqrt(double n, double tolerance){
-      double guess = 1;
-      while (Math.abs(n - Math.pow(guess, 2)) > tolerance * n){
-        guess = (n / guess + guess) / 2;
+      return s(n, 1, tolerance);
+    }
+    public static double s(double n, double guess, double tolerance){
+      if (Math.abs(n - Math.pow(guess, 2)) > tolerance * n){
+        return s(n, (n / guess + guess) / 2, tolerance);
       }
-      return guess;
+      else return guess;
     }
 
     /*Recursively find the n'th fibbonaci number in linear time
